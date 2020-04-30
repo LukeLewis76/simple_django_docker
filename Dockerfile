@@ -3,9 +3,6 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 RUN python -m pip install --upgrade pip
-RUN pip install pipenv
-COPY Pipfile* /code/
-RUN pipenv shell
-RUN pipenv install
 COPY . /code/
+RUN pip install -p
 CMD python manage.py runserver 0.0.0.0:8000
