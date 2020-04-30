@@ -5,6 +5,6 @@ WORKDIR /code
 RUN python -m pip install --upgrade pip
 RUN pip install pipenv
 COPY Pipfile* /code/
-RUN pipenv install
+RUN pipenv shell && pipenv install
 COPY . /code/
 CMD python manage.py runserver 0.0.0.0:8000
